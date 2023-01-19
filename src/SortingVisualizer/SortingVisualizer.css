@@ -1,11 +1,45 @@
 .array-container {
   position: absolute;
+
   left: 100px;
-  /* top: 100px; */
+  right: 100px;
+  top: 80px;
+  right: 100px;
+  /* bottom: 10px; */
 }
 
 .array-bar {
-  width: 10px;
+  width: 35px;
   display: inline-block;
   margin: 0 1px;
+}
+.array-value {
+  width: 35px;
+  margin: 0 1px;
+}
+.bars {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.algo-speed {
+  display: flex;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.Controller {
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: #233549;
+  width: 100vw;
+  /* color: white; */
+}
+.btn {
+  color: white;
+  background-color: #233549;
+  border: none;
+  padding: 10px;
 }
