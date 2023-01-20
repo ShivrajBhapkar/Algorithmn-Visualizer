@@ -30,6 +30,8 @@
   color: white;
 }
 .Controller {
+  font-size: 16px;
+  font-family: monospace;
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -38,8 +40,19 @@
   /* color: white; */
 }
 .btn {
+  display: flex;
+  font-size: 16px;
+  font-family: monospace;
   color: white;
   background-color: #233549;
   border: none;
   padding: 10px;
+  /* justify-content: center; */
+  align-items: center;
 }
+.btn:hover {
+  cursor: pointer;
+}
+/* #typeinp:hover {
+  cursor: grabbing;
+} */

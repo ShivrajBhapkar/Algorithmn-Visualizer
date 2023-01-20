@@ -1,6 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { getMergeSortAnimations } from "../sortingAlgorithms/MergeSortingAlgorithm.js";
+import { bubbleSortAlgorithmn } from "../sortingAlgorithms/BubbleSortAlgorithmn.js";
 import "./SortingVisualizer.css";
 
 // Change this value for the speed of the animations.
@@ -131,7 +132,8 @@ export default function Example() {
     setArray(array);
   }
   function mergeSort() {
-    const animations = getMergeSortAnimations(array);
+    const newArray = array.slice();
+    const animations = getMergeSortAnimations(newArray);
     for (let i = 0; i < animations.length; i++) {
       const arrayBars = document.getElementsByClassName("array-bar");
       const arrayvalue = document.getElementsByClassName("array-value");
@@ -152,9 +154,7 @@ export default function Example() {
       } else {
         setTimeout(() => {
           const [barOneIdx, newHeight] = animations[i];
-
           const barOneStyle = arrayBars[barOneIdx].style;
-
           arrayvalue[barOneIdx].textContent = newHeight;
           barOneStyle.height = `${newHeight}px`;
         }, i * ANIMATION_SPEED_MS);
@@ -169,9 +169,44 @@ export default function Example() {
   //     // We leave it as an exercise to the viewer of this code to implement this method.
   //   }
 
-  //   bubbleSort() {
-  //     // We leave it as an exercise to the viewer of this code to implement this method.
-  //   }
+  function bubbleSort() {
+    let newArray = array.slice();
+    const animations = bubbleSortAlgorithmn(newArray);
+    console.log(animations);
+
+    for (let i = 0; i < animations.length; i++) {
+      const barArray = document.getElementsByClassName("array-bar");
+      const barArrayValues = document.getElementsByClassName("array-value");
+
+      const isColorChange = i % 3 !== 2;
+      if (isColorChange) {
+        const [barOneIdx, barTwoIdx] = animations[i];
+        const barOneStyle = barArray[barOneIdx].style;
+        const barTwoStyle = barArray[barTwoIdx].style;
+        const barOneValueStyle = barArrayValues[barOneIdx].style;
+        const barTwoValueStyle = barArrayValues[barTwoIdx].style;
+        const color = i % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+        setTimeout(() => {
+          barOneStyle.backgroundColor = color;
+          barTwoStyle.backgroundColor = color;
+          barOneValueStyle.backgroundColor = color;
+          barTwoValueStyle.backgroundColor = color;
+        }, i * ANIMATION_SPEED_MS);
+      } else {
+        const [barOneIdx, barTwoIdx, barOneValue, barTwoValue] = animations[i];
+        const barOneStyle = barArray[barOneIdx].style;
+        const barTwoStyle = barArray[barTwoIdx].style;
+        if (barOneValue > barTwoValue) {
+          setTimeout(() => {
+            barOneStyle.height = `${barTwoValue}px`;
+            barTwoStyle.height = `${barOneValue}px`;
+            barArrayValues[barOneIdx].textContent = barTwoValue;
+            barArrayValues[barTwoIdx].textContent = barOneValue;
+          }, i * ANIMATION_SPEED_MS);
+        }
+      }
+    }
+  }
 
   function testSortingAlgorithms() {
     for (let i = 0; i < 100; i++) {
@@ -232,7 +267,7 @@ export default function Example() {
         <button className="btn" onClick={() => this.heapSort()}>
           Heap Sort
         </button>
-        <button className="btn" onClick={() => this.bubbleSort()}>
+        <button className="btn" onClick={bubbleSort}>
           Bubble Sort
         </button>
         <div className="btn" onClick={testSortingAlgorithms}>
