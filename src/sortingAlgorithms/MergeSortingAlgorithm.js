@@ -6,13 +6,7 @@ export function getMergeSortAnimations(array) {
   return animations;
 }
 
-function mergeSortHelper(
-  mainArray,
-  startIdx,
-  endIdx,
-
-  animations
-) {
+function mergeSortHelper(mainArray, startIdx, endIdx, animations) {
   if (startIdx >= endIdx) return;
   const middleIdx = startIdx + parseInt((endIdx - startIdx) / 2);
   mergeSortHelper(mainArray, startIdx, middleIdx, animations);

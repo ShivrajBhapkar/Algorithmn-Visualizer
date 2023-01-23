@@ -2,13 +2,14 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getMergeSortAnimations } from "../sortingAlgorithms/MergeSortingAlgorithm.js";
 import { bubbleSortAlgorithmn } from "../sortingAlgorithms/BubbleSortAlgorithmn.js";
+import { QuickSortAlgo } from "../sortingAlgorithms/QuickSortAlgorithmn.js";
 import "./SortingVisualizer.css";
 
 // Change this value for the speed of the animations.
 // const ANIMATION_SPEED_MS = 20;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 25;
+const NUMBER_OF_ARRAY_BARS = 6;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = "turquoise";
@@ -161,9 +162,10 @@ export default function Example() {
       }
     }
   }
-  //  quickSort() {
-  //     // We leave it as an exercise to the viewer of this code to implement this method.
-  //   }
+  function quickSort() {
+    const animations = QuickSortAlgo(array);
+    console.log(animations);
+  }
 
   //   heapSort() {
   //     // We leave it as an exercise to the viewer of this code to implement this method.
@@ -261,7 +263,7 @@ export default function Example() {
         <button className="btn" onClick={mergeSort}>
           Merge Sort
         </button>
-        <button className="btn" onClick={() => this.quickSort()}>
+        <button className="btn" onClick={quickSort}>
           Quick Sort
         </button>
         <button className="btn" onClick={() => this.heapSort()}>
