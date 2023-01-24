@@ -16,14 +16,18 @@ function QuickSortHelper(arr, start, end, animation) {
   let j = start;
   while (start < end) {
     while (arr[start] <= temp) {
+      animation.push([start, start]);
+      animation.push([start, start]);
       start++;
     }
     while (arr[end] > temp) {
+      animation.push([end, end]);
+      animation.push([end, end]);
       end--;
     }
     if (start < end) {
-      animation.push([start, end]);
-      animation.push([start, end]);
+      animation.push([start, end, arr[start], arr[end]]);
+      animation.push([start, end, arr[start], arr[end]]);
       animation.push([start, end, arr[start], arr[end]]);
       [arr[start], arr[end]] = [arr[end], arr[start]];
     }

@@ -9,7 +9,7 @@ import "./SortingVisualizer.css";
 // const ANIMATION_SPEED_MS = 20;
 
 // Change this value for the number of bars (value) in the array.
-const NUMBER_OF_ARRAY_BARS = 25;
+const NUMBER_OF_ARRAY_BARS = 30;
 
 // This is the main color of the array bars.
 const PRIMARY_COLOR = "turquoise";
@@ -169,56 +169,62 @@ export default function Example() {
     const arrayvalue = document.getElementsByClassName("array-value");
     while (i < animations.length) {
       if (animations[i].length === 2) {
-        let k = i + 3;
         let j = 0;
-        while (i < k) {
-          const isColorChange = j % 3 !== 2;
-          if (isColorChange) {
-            const [barOneIdx, barTwoIdx] = animations[i];
+        while (i < animations.length && animations[i].length === 2) {
+          const [barOneIdx, barTwoIdx] = animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          const barTwoStyle = arrayBars[barTwoIdx].style;
+          const barOneValueStyle = arrayvalue[barOneIdx].style;
+          const barTwoValueStyel = arrayvalue[barTwoIdx].style;
+          const color = j % 2 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+          setTimeout(() => {
+            barOneStyle.backgroundColor = color;
+            barTwoStyle.backgroundColor = color;
+            barOneValueStyle.backgroundColor = color;
+            barTwoValueStyel.backgroundColor = color;
+          }, i * ANIMATION_SPEED_MS * 2);
+          j++;
+          i++;
+        }
+      } else {
+        if (i < animations.length - 1 && animations[i + 1].length === 4) {
+          let k = 0;
+          while (i < animations.length && k < 2) {
+            const [barOneIdx, barTwoIdx, barOneValue, barTwoValue] =
+              animations[i];
             const barOneStyle = arrayBars[barOneIdx].style;
             const barTwoStyle = arrayBars[barTwoIdx].style;
             const barOneValueStyle = arrayvalue[barOneIdx].style;
             const barTwoValueStyel = arrayvalue[barTwoIdx].style;
-            const color = j % 3 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
+            const color = k % 2 === 0 ? SECONDARY_COLOR : PRIMARY_COLOR;
             setTimeout(() => {
               barOneStyle.backgroundColor = color;
               barTwoStyle.backgroundColor = color;
               barOneValueStyle.backgroundColor = color;
               barTwoValueStyel.backgroundColor = color;
             }, i * ANIMATION_SPEED_MS * 2);
-          } else {
-            const [barOneIdx, barTwoIdx, barOneValue, barTwoValue] =
-              animations[i];
-            const barOneStyle = arrayBars[barOneIdx].style;
-            const barTwoStyle = arrayBars[barTwoIdx].style;
 
-            setTimeout(() => {
-              barOneStyle.height = `${barTwoValue}px`;
-              barTwoStyle.height = `${barOneValue}px`;
-              arrayvalue[barOneIdx].textContent = barTwoValue;
-              arrayvalue[barTwoIdx].textContent = barOneValue;
-            }, i * ANIMATION_SPEED_MS * 2);
+            i++;
+            k++;
           }
-          j++;
+        } else {
+          const [barOneIdx, barTwoIdx, barOneValue, barTwoValue] =
+            animations[i];
+          const barOneStyle = arrayBars[barOneIdx].style;
+          const barTwoStyle = arrayBars[barTwoIdx].style;
+
+          setTimeout(() => {
+            barOneStyle.height = `${barTwoValue}px`;
+            barTwoStyle.height = `${barOneValue}px`;
+            arrayvalue[barOneIdx].textContent = barTwoValue;
+            arrayvalue[barTwoIdx].textContent = barOneValue;
+          }, i * ANIMATION_SPEED_MS * 2);
+
           i++;
         }
-      } else {
-        const [barOneIdx, barTwoIdx, barOneValue, barTwoValue] = animations[i];
-        const barOneStyle = arrayBars[barOneIdx].style;
-        const barTwoStyle = arrayBars[barTwoIdx].style;
-
-        setTimeout(() => {
-          barOneStyle.height = `${barTwoValue}px`;
-          barTwoStyle.height = `${barOneValue}px`;
-          arrayvalue[barOneIdx].textContent = barTwoValue;
-          arrayvalue[barTwoIdx].textContent = barOneValue;
-          // barTwoStyle.backgroundColor = "green";
-        }, i * ANIMATION_SPEED_MS * 2);
-
-        i++;
       }
     }
-    // console.log(animations);
+    console.log(animations);
   }
 
   //   heapSort() {
