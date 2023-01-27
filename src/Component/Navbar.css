@@ -1,0 +1,81 @@
+.Controller {
+  font-size: 16px;
+  font-family: monospace;
+  padding: 5px;
+  display: flex;
+  justify-content: center;
+  background-color: #233549;
+  width: 100vw;
+  margin-bottom: 20px;
+}
+.btn {
+  display: flex;
+  font-size: 16px;
+  font-family: monospace;
+  color: white;
+  background-color: #233549;
+  border: none;
+  padding: 10px;
+
+  align-items: center;
+}
+.btn:hover {
+  cursor: pointer;
+}
+#typeinp:hover {
+  cursor: grabbing;
+}
+.algo-speed {
+  display: flex;
+  width: 250px;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+.btn-list {
+  display: flex;
+  /* flex-direction: row; */
+}
+@media only screen and (max-width: 961px) {
+  .Controller {
+    font-family: "Courier New", Courier, monospace;
+    font-size: 18px;
+    width: 100vw;
+    font-weight: bold;
+    padding: 5px;
+    background-color: rgb(24, 21, 21);
+    margin-left: 5px;
+  }
+  .btn {
+    padding: 5px;
+    margin-right: 5px;
+    font-size: 18px;
+    font-weight: bold;
+    background-color: rgb(24, 21, 21);
+  }
+  .algo-speed {
+    width: 200px;
+  }
+}
+@media only screen and (max-width: 570px) {
+  .Controller {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: #233549;
+    font-size: 14px;
+    padding: 5px;
+  }
+  .btn {
+    font-size: 14px;
+    background-color: #233549;
+    padding: 5px;
+    margin-right: 2px;
+    color: white;
+    font-weight: bold;
+  }
+  .algo-speed {
+    color: white;
+    font-weight: bold;
+  }
+}
