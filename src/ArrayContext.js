@@ -4,9 +4,10 @@ import { useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 const arraycontext = createContext();
-const NUMBER_OF_ARRAY_BARS = 25;
+let NUMBER_OF_ARRAY_BARS = 25;
 const PRIMARY_COLOR = "turquoise";
 const SECONDARY_COLOR = "red";
+
 const ArrayContext = ({ children }) => {
   const [array, setArray] = useState([]);
   const [ANIMATION_SPEED_MS, setSpeed] = useState(20);
@@ -14,7 +15,6 @@ const ArrayContext = ({ children }) => {
     resetArray();
     setSpeed(20);
   }, []);
-
   function resetArray() {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
@@ -39,7 +39,6 @@ const ArrayContext = ({ children }) => {
     </arraycontext.Provider>
   );
   function randomIntFromInterval(min, max) {
-    // min and max included
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
 };

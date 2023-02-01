@@ -1,4 +1,3 @@
-// An optimized version of Bubble Sort
 export function bubbleSortAlgorithmn(array) {
   let length = array.length;
   const animation = [];

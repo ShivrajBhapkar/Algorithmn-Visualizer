@@ -1,6 +1,7 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@200&display=swap");
 .Controller {
   font-size: 16px;
-  font-family: monospace;
+  font-family: "Inter", sans-serif;
   padding: 5px;
   display: flex;
   justify-content: center;
@@ -8,10 +9,14 @@
   width: 100vw;
   margin-bottom: 20px;
 }
+
+.foo {
+  --toastify-toast-width: 820px;
+}
 .btn {
   display: flex;
   font-size: 16px;
-  font-family: monospace;
+  font-family: "Inter", sans-serif;
   color: white;
   background-color: #233549;
   border: none;
@@ -34,11 +39,10 @@
 }
 .btn-list {
   display: flex;
-  /* flex-direction: row; */
 }
+
 @media only screen and (max-width: 961px) {
   .Controller {
-    font-family: "Courier New", Courier, monospace;
     font-size: 18px;
     width: 100vw;
     font-weight: bold;
@@ -56,26 +60,44 @@
   .algo-speed {
     width: 200px;
   }
+  .foo {
+    display: none;
+  }
 }
+.nav-menu {
+  display: none;
+}
+.hamburger {
+  display: none;
+  cursor: pointer;
+}
+
 @media only screen and (max-width: 570px) {
   .Controller {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    background-color: #233549;
+    background-color: rgb(24, 21, 21);
     font-size: 14px;
     padding: 5px;
   }
+
   .btn {
     font-size: 14px;
-    background-color: #233549;
+    background-color: rgba(24, 21, 21, 0.637);
     padding: 5px;
     margin-right: 2px;
     color: white;
-    font-weight: bold;
   }
+  .btn-list {
+    display: flex;
+    flex-direction: column;
+  }
+
   .algo-speed {
     color: white;
-    font-weight: bold;
+  }
+  .foo {
+    display: none;
   }
 }

@@ -1,7 +1,9 @@
 export function QuickSortAlgo(array) {
+  if (array.length <= 1) {
+    return array;
+  }
   let animation = [];
   QuickSortUtil(array, 0, array.length - 1, animation);
-  console.log(array);
   return animation;
 }
 function QuickSortUtil(arr, start, end, animation) {
