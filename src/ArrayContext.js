@@ -14,7 +14,15 @@ const ArrayContext = ({ children }) => {
   useEffect(() => {
     resetArray();
     setSpeed(20);
+   if(window.innerWidth < 570){
+    NUMBER_OF_ARRAY_BARS = 10;
+    
+   }else{
+    NUMBER_OF_ARRAY_BARS = 25;
+   }
   }, []);
+
+  
   function resetArray() {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
