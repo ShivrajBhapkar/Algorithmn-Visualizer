@@ -1,6 +1,7 @@
 import React from "react";
-import { ArrayState } from "../ArrayContext.js";
 import { getMergeSortAnimations } from "../sortingAlgorithms/MergeSortingAlgorithm.js";
+import { ArrayState } from "../ArrayContext.js";
+
 import { bubbleSortAlgorithmn } from "../sortingAlgorithms/BubbleSortAlgorithmn.js";
 import { QuickSortAlgo } from "../sortingAlgorithms/QuickSortAlgorithmn.js";
 import { Heapsort } from "../sortingAlgorithms/HeapSortAlgorithm.js";
@@ -32,6 +33,7 @@ const Navbar = () => {
       });
     notify();
   }
+ 
   function mergeSort() {
     const newArray = array.slice();
     const animations = getMergeSortAnimations(newArray);
@@ -74,7 +76,6 @@ const Navbar = () => {
     for (let i = 0; i < animations.length; i++) {
       const barArray = document.getElementsByClassName("array-bar");
       const barArrayValues = document.getElementsByClassName("array-value");
-
       const isColorChange = i % 3 !== 2;
       if (isColorChange) {
         const [barOneIdx, barTwoIdx] = animations[i];

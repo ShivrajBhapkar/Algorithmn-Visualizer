@@ -5,7 +5,7 @@ import { useContext } from "react";
 import { createContext } from "react";
 const arraycontext = createContext();
 let NUMBER_OF_ARRAY_BARS = 25;
-const PRIMARY_COLOR = "turquoise";
+const PRIMARY_COLOR = "coral";
 const SECONDARY_COLOR = "red";
 
 const ArrayContext = ({ children }) => {
