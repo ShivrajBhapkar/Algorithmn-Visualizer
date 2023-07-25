@@ -6,6 +6,7 @@
 .array-container {
   display: block;
   margin: 10px;
+  width: 100vw;
 }
 .Container {
   display: flex;
@@ -33,7 +34,7 @@
     width: 20px;
   }
   .array-value {
-    display: block;
+  
     width: 20px;
     margin: 0 1px;
     font-weight: bold;

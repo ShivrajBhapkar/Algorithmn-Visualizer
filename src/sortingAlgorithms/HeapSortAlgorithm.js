@@ -31,7 +31,6 @@ function heapify(arr, N, i, animation) {
     let swap = arr[i];
     arr[i] = arr[largest];
     arr[largest] = swap;
-
     heapify(arr, N, largest, animation);
   }
 }

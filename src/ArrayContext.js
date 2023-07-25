@@ -4,22 +4,16 @@ import { useState } from "react";
 import { useContext } from "react";
 import { createContext } from "react";
 const arraycontext = createContext();
-let NUMBER_OF_ARRAY_BARS = 25;
+let NUMBER_OF_ARRAY_BARS = 22;
 const PRIMARY_COLOR = "coral";
 const SECONDARY_COLOR = "red";
 
 const ArrayContext = ({ children }) => {
   const [array, setArray] = useState([]);
-  const [ANIMATION_SPEED_MS, setSpeed] = useState(20);
+  const [ANIMATION_SPEED_MS, setSpeed] = useState(140);
   useEffect(() => {
     resetArray();
-    setSpeed(20);
-   if(window.innerWidth < 570){
-    NUMBER_OF_ARRAY_BARS = 10;
-    
-   }else{
-    NUMBER_OF_ARRAY_BARS = 25;
-   }
+    setSpeed(140);
   }, []);
 
   

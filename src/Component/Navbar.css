@@ -27,6 +27,10 @@
 .btn:hover {
   cursor: pointer;
 }
+.btn:disabled {
+  cursor: not-allowed; /* Show not-allowed cursor on disabled buttons */
+  opacity: 0.6; /* Reduce opacity for disabled buttons */
+}
 #typeinp:hover {
   cursor: grabbing;
 }
